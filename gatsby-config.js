@@ -2,12 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `まぶろぐ`,
     description: `This is Makoto Nakano's homepage.`,
-    author: `@gatsbyjs`,
-    link: [
-      `top`,
-      `about`,
-      `policy`
-    ]
+    author: `@gatsbyjs`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

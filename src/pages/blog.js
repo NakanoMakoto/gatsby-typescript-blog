@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 
 const BlogPage = () => (
   <Layout>
-    <SEO title="Blog" />
+    <SEO title="blog" />
     <h1>ブログページです。</h1>
     <Link to="/">Go back to the homepage</Link>
   </Layout>

@@ -4,9 +4,9 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const AboutPage = () => (
+const PolicyPage = () => (
   <Layout>
-    <SEO title="About" />
+    <SEO title="policy" />
     <h1>利用規約</h1>
     <p>ここに利用規約を記載します（予定）</p>
     <p>デザインちゃんとします笑</p>
@@ -14,4 +14,4 @@ const AboutPage = () => (
   </Layout>
 )
 
-export default AboutPage
+export default PolicyPage
