@@ -28,7 +28,6 @@ const TemplateWrapper = ({ children }) => (
             name="description"
             content={data.site.siteMetadata.description}
           />
-
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -60,7 +59,7 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:image" content="/img/og-image.jpg" />
         </Helmet>
         <Navbar />
-        <div>{children}</div>
+        <div className="contents">{children}</div>
         <Footer />
       </div>
     )}
