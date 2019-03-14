@@ -2,10 +2,10 @@
 templateKey: index-page
 title: まぶろぐ
 image: /img/mokume5.jpg
-heading: まぶろぐ
+heading: 今までやってきたプロジェクトについて抜粋
 subheading: web系エンジニアの雑記
 mainpitch:
-  title: Why Kaldi
+  title: 自己紹介
   description: >
     Kaldi is the coffee store for everyone who believes that great coffee
     shouldn't just taste good, it should do good too. We source all of our beans
