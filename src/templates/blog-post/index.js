@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../../components/Layout'
 import Content, { HTMLContent } from '../../components/Content'
+import './index.css'
 
 export const BlogPostTemplate = ({
   content,
@@ -17,7 +18,7 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
+    <section className="blog_post section">
       {helmet || ''}
       <div className="container content">
         <div className="columns">
@@ -28,7 +29,7 @@ export const BlogPostTemplate = ({
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
+              <div className="blog_post_tag">
                 <h4>Tags</h4>
                 <ul className="taglist">
                   {tags.map(tag => (

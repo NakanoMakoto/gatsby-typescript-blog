@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import Features from '../../components/Features'
 import BlogRoll from '../../components/BlogRoll'
+import './index.css'
 
 export const IndexPageTemplate = ({
   image,
@@ -18,15 +19,13 @@ export const IndexPageTemplate = ({
 }) => (
     <div>
       <div
-        className="full-width-image margin-top-0"
+        className="index_page full-width-image margin-top-0"
         style={{
           backgroundImage: `url(${
             !!image.childImageSharp
               ? image.childImageSharp.fluid.src
               : image
             })`,
-          backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`,
         }}
       >
         <div style={{
