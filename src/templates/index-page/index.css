@@ -2,3 +2,27 @@
     background-position: top left;
     background-attachment: fixed;
 }
+
+.index_page_title_box {
+    display: flex;
+    height: 150px;
+    line-height: 1;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column
+}
+
+.index_page_title {
+    color: white;
+    line-height: 1;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.index_page_title_sub {
+    box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px;
+    background-color: rgb(255, 68, 0);
+    color: white;
+    line-height: 1;
+    padding: 0.25em;
+}
