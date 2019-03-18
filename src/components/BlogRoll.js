@@ -13,7 +13,7 @@ class BlogRoll extends React.Component {
       {posts && (posts
           .map(({ node: post }) => (
             <div
-              className="is-parent column is-6"
+              className="is-parent column is-half"
               key={post.id}
             >
             <article className="tile is-child box notification">
@@ -45,7 +45,7 @@ BlogRoll.propTypes = {
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
     }),
-  }),
+  })
 }
 
 export default () => (
