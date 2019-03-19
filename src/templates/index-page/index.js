@@ -15,51 +15,51 @@ export const IndexPageTemplate = ({
   intro,
   main,
 }) => (
-    <div>
-      <section
-        className="index_page full-width-image margin-top-0"
-        style={{ backgroundImage: `url(${image})`}}
-      >
-        <div className="index_page_title_box">
-          <h1 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen index_page_title">
-            {title}
-          </h1>
-          <h3 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen index_page_title_sub">
-            {subheading}
-          </h3>
-        </div>
-      </section>
-      <section className="section section--gradient">
-        <div className="container">
-          <div className="section">
-            <div className="columns">
-              <div className="column is-10 is-offset-1">
+  <div>
+    <section
+      className="index_page full-width-image margin-top-0"
+      style={{ backgroundImage: `url(${image})` }}
+    >
+      <div className="index_page_title_box">
+        <h1 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen index_page_title">
+          {title}
+        </h1>
+        <h3 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen index_page_title_sub">
+          {subheading}
+        </h3>
+      </div>
+    </section>
+    <section className="section section--gradient">
+      <div className="container">
+        <div className="section">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <div className="content">
                 <div className="content">
-                  <div className="content">
-                    <div className="tile">
-                      <h1 className="title">{mainpitch.title}</h1>
-                    </div>
-                    <div className="tile">
-                      <h3 className="subtitle">{mainpitch.description}</h3>
-                    </div>
+                  <div className="tile">
+                    <h1 className="title">{mainpitch.title}</h1>
                   </div>
-                  <div className="columns">
-                    <div className="column is-12">
-                      <h3 className="has-text-weight-semibold is-size-2">
-                        {heading}
-                      </h3>
-                      <p>{description}</p>
-                    </div>
+                  <div className="tile">
+                    <h3 className="subtitle">{mainpitch.description}</h3>
                   </div>
-                  {/* <Features gridItems={intro.blurbs} /> */}
                 </div>
+                <div className="columns">
+                  <div className="column is-12">
+                    <h3 className="has-text-weight-semibold is-size-2">
+                      {heading}
+                    </h3>
+                    <p>{description}</p>
+                  </div>
+                </div>
+                {/* <Features gridItems={intro.blurbs} /> */}
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
-  )
+      </div>
+    </section>
+  </div>
+)
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -77,8 +77,8 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   const image = !!frontmatter.image.childImageSharp
-  ? frontmatter.image.childImageSharp.fluid.src
-  : frontmatter.image
+    ? frontmatter.image.childImageSharp.fluid.src
+    : frontmatter.image
 
   return (
     <Layout>
@@ -106,8 +106,8 @@ IndexPage.propTypes = {
 export default IndexPage
 
 export const pageQuery = graphql`
-query IndexPageTemplate {
-  markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
+  query IndexPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
         image {
