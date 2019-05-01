@@ -2,10 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import Image from "../components/image";
 import SEO from "../components/seo";
-import { string } from "postcss-selector-parser";
-import { number } from "../../../../Library/Caches/typescript/3.4.3/node_modules/@types/prop-types";
 
 const IndexPage = (query: queryProps) => (
   <Layout>
