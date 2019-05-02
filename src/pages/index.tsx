@@ -8,11 +8,16 @@ const IndexPage = (query: queryProps) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>Hi there</h1>
-    {query.data.allWorksYaml.edges.map(edge => {
-      const work = edge.node;
+    {query.data.allMarkdownRemark.edges.map(edge => {
+      const node = edge.node;
       return (
-        <div>
-          {work.title} - {work.description} - {work.year}
+        <div key={node.id}>
+          <span>
+            {node.frontmatter.title}{" "} — {node.frontmatter.date}
+          </span>
+          <div>
+            {node.excerpt}
+          </div>
         </div>
       );
     })}
@@ -21,33 +26,40 @@ const IndexPage = (query: queryProps) => (
 );
 
 interface queryProps {
-  data: {
-    allWorksYaml: {
-      edges: [
+  "data": {
+    "allMarkdownRemark": {
+      "edges": [
         {
-          node: {
-            title: string;
-            description: string;
-            year: number;
-          };
+          "node": {
+            "id": string,
+            "frontmatter": {
+              "title": string,
+              "date": string
+            },
+            "excerpt": string
+          }
         }
-      ];
-    };
-  };
+      ]
+    }
+  }
 }
 
 export const query = graphql`
-  query Indexpage {
-    allWorksYaml {
-      edges {
-        node {
+query blogPosts {
+  allMarkdownRemark {
+    totalCount
+    edges {
+      node {
+        id
+        frontmatter {
           title
-          description
-          year
+          date
         }
+        excerpt
       }
     }
   }
+}
 `;
 
 export default IndexPage;
