@@ -13,11 +13,9 @@ const IndexPage = (query: queryProps) => (
       return (
         <div key={node.id}>
           <span>
-            {node.frontmatter.title}{" "} — {node.frontmatter.date}
+            {node.frontmatter.title} — {node.frontmatter.date}
           </span>
-          <div>
-            {node.excerpt}
-          </div>
+          <div>{node.excerpt}</div>
         </div>
       );
     })}
@@ -26,40 +24,42 @@ const IndexPage = (query: queryProps) => (
 );
 
 interface queryProps {
-  "data": {
-    "allMarkdownRemark": {
-      "edges": [
+  data: {
+    allMarkdownRemark: {
+      edges: [
         {
-          "node": {
-            "id": string,
-            "frontmatter": {
-              "title": string,
-              "date": string
-            },
-            "excerpt": string
-          }
+          node: {
+            id: string;
+            frontmatter: {
+              title: string;
+              date: string;
+              slug: string;
+            };
+            excerpt: string;
+          };
         }
-      ]
-    }
-  }
+      ];
+    };
+  };
 }
 
 export const query = graphql`
-query blogPosts {
-  allMarkdownRemark {
-    totalCount
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-          date
+  query blogPosts {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            slug
+          }
+          excerpt
         }
-        excerpt
       }
     }
   }
-}
 `;
 
 export default IndexPage;
