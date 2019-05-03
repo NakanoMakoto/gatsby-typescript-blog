@@ -18,47 +18,39 @@ const PostPage = (query: postQuery) => {
 };
 
 interface postData {
-    "frontmatter": {
-      "title": string,
-      "date": string,
-      "slug": string
-    },
-    "excerpt": string
+  frontmatter: {
+    title: string;
+    date: string;
+    slug: string;
+  };
+  excerpt: string;
 }
 
 interface postQuery {
-  "data": {
-    "allMarkdownRemark": {
-      "edges": {
-        "node": postData[]
-      }
-    }
-  }
+  data: {
+    allMarkdownRemark: {
+      edges: {
+        node: postData[];
+      };
+    };
+  };
 }
 
 export const query = graphql`
   query($slug: String!) {
-    allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          slug: {
-            eq: $slug
+    allMarkdownRemark(filter: { frontmatter: { slug: { eq: $slug } } }) {
+      totalCount
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+            slug
           }
+          excerpt
         }
       }
-    ){
-        totalCount
-        edges {
-          node {
-            frontmatter {
-              title
-              date
-              slug
-            },
-            excerpt
-          }
-        }
-      }
+    }
   }
 `;
 
