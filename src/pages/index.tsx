@@ -15,7 +15,6 @@ const IndexPage = (query: queryProps) => (
             <span>
               {node.frontmatter.title} — {node.frontmatter.date}
             </span>
-            <div>{node.excerpt}</div>
           </div>
         </Link>
       );
@@ -35,7 +34,6 @@ interface queryProps {
               date: string;
               slug: string;
             };
-            excerpt: string;
           };
         }
       ];
@@ -55,7 +53,6 @@ export const query = graphql`
             date
             slug
           }
-          excerpt
         }
       }
     }
