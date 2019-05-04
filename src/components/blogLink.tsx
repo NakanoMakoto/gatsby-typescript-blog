@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 
@@ -14,7 +14,7 @@ const Title = styled.h3`
   font-size: 18px;
   line-height: 1.48;
   color: #222;
-`
+`;
 
 const Description = styled.p`
   font-size: 14px;
@@ -34,14 +34,25 @@ const CardLink = css`
   }
 `;
 
-const BlogLink = () => (
-  <Link to="/" css={CardLink}>
-    <Container>
-      <Title>ブログのタイトルがここに入ります</Title>
-      <Description>前回に引き続き、技術書典6にサークル主として参加させていただきました。
- 技術同人誌界隈はかつてない盛り上がりを見せており、今回のサークル当落発表の際は地獄のようなタイムラインになっていました。そうい</Description>
-    </Container>
-  </Link>
-);
+const BlogLink = ({ data }: { data: blogData }) => {
+  return (
+    <Link to={`posts/${data.frontmatter.slug}`} css={CardLink}>
+      <Container>
+        <Title>{data.frontmatter.title}</Title>
+        <Description>{data.excerpt}</Description>
+      </Container>
+    </Link>
+  );
+};
+
+interface blogData {
+  id: string;
+  frontmatter: {
+    title: string;
+    date: string;
+    slug: string;
+  };
+  excerpt;
+}
 
 export default BlogLink;

@@ -4,20 +4,14 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+import BlogLink from "../components/blogLink";
+
 const IndexPage = (query: queryProps) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     {query.data.allMarkdownRemark.edges.map(edge => {
       const node = edge.node;
-      return (
-        <Link to={`posts/${node.frontmatter.slug}`} key={node.id}>
-          <div>
-            <span>
-              {node.frontmatter.title} — {node.frontmatter.date}
-            </span>
-          </div>
-        </Link>
-      );
+      return <BlogLink data={node} key={node.id} />;
     })}
   </Layout>
 );
@@ -34,6 +28,7 @@ interface queryProps {
               date: string;
               slug: string;
             };
+            excerpt;
           };
         }
       ];
@@ -53,6 +48,7 @@ export const query = graphql`
             date
             slug
           }
+          excerpt
         }
       }
     }
