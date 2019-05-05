@@ -7,27 +7,31 @@ import { css } from "@emotion/core";
 const HeaderStyle = styled.header`
   background: teal;
   margin-bottom: 1.45rem;
-`
+`;
+
+const Title = styled.h1`
+  margin: 0;
+`;
 
 const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.45rem 1.0875rem; 
-`
+  padding: 1.45rem 1.0875rem;
+`;
 
 const TitleLink = css`
-  color: teal;
+  color: white;
   text-decoration: none;
-`
+`;
 
 const Header = ({ siteTitle }) => (
   <HeaderStyle>
     <Container>
-      <h1 style={{ margin: 0 }}>
+      <Title>
         <Link to="/" css={TitleLink}>
           {siteTitle}
         </Link>
-      </h1>
+      </Title>
     </Container>
   </HeaderStyle>
 );
