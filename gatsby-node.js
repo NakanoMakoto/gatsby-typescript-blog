@@ -25,18 +25,15 @@ exports.createPages = ({ actions, graphql }) => {
           }
       }
     `).then(result => {
-        // queryの結果確認
+        // query result
         // console.log(JSON.stringify(result, null, 4));
         result.data.allMarkdownRemark.edges.map(edge => {
             const node = edge.node;
-            // デバック用のログをここに出力します。
-            console.log("create page", `posts/${node.frontmatter.slug}`);
-            
+            // to see page url
+            // console.log("create page", `posts/${node.frontmatter.slug}`);
             createPage({
-                // 動的に生成するページ
                 path: `posts/${node.frontmatter.slug}`,
                 component: path.resolve("./src/templetes/post.tsx"),
-                // GraphQLの変数としてセットされる値
                 context: {
                     slug: node.frontmatter.slug
                 }

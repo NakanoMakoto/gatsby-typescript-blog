@@ -1,14 +1,12 @@
+import { graphql } from "gatsby";
 import React from "react";
-import { Link, graphql } from "gatsby";
-
+import BlogLink from "../components/blogLink";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import BlogLink from "../components/blogLink";
-
 const IndexPage = (query: queryProps) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="" keywords={[`gatsby`, `programming`]} />
     {query.data.allMarkdownRemark.edges.map(edge => {
       const node = edge.node;
       return <BlogLink data={node} key={node.id} />;

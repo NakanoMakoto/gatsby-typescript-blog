@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
+import DateUtils from "../utils/dateUtils";
 
 const Container = styled.div`
   max-width: 620px;
@@ -46,10 +47,10 @@ interface blogData {
 
 const BlogLink = ({ data }: { data: blogData }) => {
   return (
-    <Link to={`posts/${data.frontmatter.slug}`} css={CardLink}>
+    <Link to={`/posts/${data.frontmatter.slug}`} css={CardLink}>
       <Container>
         <Title>{data.frontmatter.title}</Title>
-        <Description>{data.frontmatter.date}</Description>
+        <Description>{DateUtils.formatDate(data.frontmatter.date)}</Description>
       </Container>
     </Link>
   );

@@ -22,6 +22,7 @@ const Container = styled.div`
 const TitleLink = css`
   color: white;
   text-decoration: none;
+  box-shadow: none;
 `;
 
 const Header = ({ siteTitle }) => (

@@ -1,6 +1,7 @@
 ---
-title: "最初の投稿です"
-date: "2019-8-21"
-slug: first
+title: "title here"
+date: "2019/5/5"
+slug: this-is-url-for-blog-posts
+description: Gatsby TypeScript Blog
 ---
-# 最初の投稿してみました
+## write your post here
