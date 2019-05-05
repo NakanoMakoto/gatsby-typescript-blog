@@ -34,17 +34,6 @@ const CardLink = css`
   }
 `;
 
-const BlogLink = ({ data }: { data: blogData }) => {
-  return (
-    <Link to={`posts/${data.frontmatter.slug}`} css={CardLink}>
-      <Container>
-        <Title>{data.frontmatter.title}</Title>
-        <Description>{data.excerpt}</Description>
-      </Container>
-    </Link>
-  );
-};
-
 interface blogData {
   id: string;
   frontmatter: {
@@ -54,5 +43,16 @@ interface blogData {
   };
   excerpt;
 }
+
+const BlogLink = ({ data }: { data: blogData }) => {
+  return (
+    <Link to={`posts/${data.frontmatter.slug}`} css={CardLink}>
+      <Container>
+        <Title>{data.frontmatter.title}</Title>
+        <Description>{data.frontmatter.date}</Description>
+      </Container>
+    </Link>
+  );
+};
 
 export default BlogLink;
